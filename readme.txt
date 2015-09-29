@@ -1,4 +1,6 @@
-Commands:
+#Commands:
+See full description at http://www.webofwork.com/qlik-sense-voice-control-extension-for-accessibility
+
 You can say the following things to your app and it should work assuming you have given the page access to your microphone:
 
 
@@ -17,9 +19,9 @@ You can say the following things to your app and it should work assuming you hav
 'select excluded *fieldname' - select excluded within specific field name
 'show me *sheetname' - navigate to another sheet with the given field name.
 
-Known limitations and notes
+#Known limitations and notes
 
-1) Currently this will only work in Chrome and Firefox and browsers that support the SpeechRecognition standard. This does not include IE11.
+1) Currently this will *only work in Chrome* and browsers that support the SpeechRecognition standard. This does not include IE11 or firefox yet.
 
 1) The app uses capitalized field names and sheet names
 e.g 'Top Customers' will work as a sheet name but 'top customers' will not.
@@ -40,9 +42,9 @@ e.g 'Customer Name' will work as a field name but  'customer name' will not.
 4) Currently you need to be accessing through a browser - IT WILL NOT WORK THROUGH SENSE DESKTOP app. You can start qlik sense desktop and then go to localhost:4848/hub and it will work. This is because need permission to use your microphone through your browser.
 
 
-Credits:
+#Credits:
 It uses the open source annyang voice recognition library.
 
-Other Contributors:
+##Other Contributors:
 Nick Webster
 Adeel Khaan
