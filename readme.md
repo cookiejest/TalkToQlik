@@ -114,6 +114,7 @@ Debug mode will turn on/off the console logging inside the developer tools so yo
 
 ##Credits:
 It uses the open source annyang voice recognition library.
+https://www.talater.com/annyang/
 
 ###Other Contributors:
 Nick Webster
