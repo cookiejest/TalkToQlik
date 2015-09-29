@@ -21,25 +21,25 @@ You can say the following things to your app and it should work assuming you hav
 
 #Known limitations and notes
 
-1) Currently this will *only work in Chrome* and browsers that support the SpeechRecognition standard. This does not include IE11 or firefox yet.
+1. Currently this will *only work in Chrome* and browsers that support the SpeechRecognition standard. This does not include IE11 or firefox yet.
 
-1) The app uses capitalized field names and sheet names
-e.g 'Top Customers' will work as a sheet name but 'top customers' will not.
-e.g 'Customer Name' will work as a field name but  'customer name' will not.
+2. The app uses capitalized field names and sheet names
+	A. 'Top Customers' will work as a sheet name but 'top customers' will not.
+	B. 'Customer Name' will work as a field name but  'customer name' will not.
 
-2) Current the extension only supports English feel free to add your own languages, as long as they are supported by the annyang library then its all good.
+3. Current the extension only supports English feel free to add your own languages, as long as they are supported by the annyang library then its all good.
 
-2) The extension needs to be on the first page that is navigated or activated before it will then work across the app. May be worth putting the extension on every sheet.
+4. The extension needs to be on the first page that is navigated or activated before it will then work across the app. May be worth putting the extension on every sheet.
 
-3) When doing searches currently it is using CurrentSelections as the context mode by default, this can be changed in the settings. In this mode, the current selections are kept (if any). Search for one or more terms in the values of the app. New selections are made on top of the current selections. Other options are:
+5. When doing searches currently it is using CurrentSelections as the context mode by default, this can be changed in the settings. In this mode, the current selections are kept (if any). Search for one or more terms in the values of the app. New selections are made on top of the current selections. Other options are:
 
-	A) Cleared: In this mode, the first step is to clear any current selections in the app. The second step is to search for one or more terms in the values of the app.
+	A. Cleared: In this mode, the first step is to clear any current selections in the app. The second step is to search for one or more terms in the values of the app.
 
-	B) LockedFieldsOnly: In this mode, the search applies only to the values associated with the selections made in locked fields, ignoring selections in any unlocked field. If no locked fields, the behavior is identical to the Cleared context. You cannot make any new selections in a locked field. You can get search hits for the associated values of a locked field but you cannot get the search hits for the non associative values.
+	B. LockedFieldsOnly: In this mode, the search applies only to the values associated with the selections made in locked fields, ignoring selections in any unlocked field. If no locked fields, the behavior is identical to the Cleared context. You cannot make any new selections in a locked field. You can get search hits for the associated values of a locked field but you cannot get the search hits for the non associative values.
 
-	C) CurrentSelections (Default): In this mode, the current selections are kept (if any). Search for one or more terms in the values of the app. New selections are made on top of the current selections. If no selections were made before the search, this mode is identical to the Cleared context.
+	C. CurrentSelections (Default): In this mode, the current selections are kept (if any). Search for one or more terms in the values of the app. New selections are made on top of the current selections. If no selections were made before the search, this mode is identical to the Cleared context.
 
-4) Currently you need to be accessing through a browser - IT WILL NOT WORK THROUGH SENSE DESKTOP app. You can start qlik sense desktop and then go to localhost:4848/hub and it will work. This is because need permission to use your microphone through your browser.
+4. Currently you need to be accessing through a browser - IT WILL NOT WORK THROUGH SENSE DESKTOP app. You can start qlik sense desktop and then go to localhost:4848/hub and it will work. This is because need permission to use your microphone through your browser.
 
 
 #Credits:
