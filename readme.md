@@ -1,5 +1,5 @@
 #Commands:
-See full description at http://www.webofwork.com/qlik-sense-voice-control-extension-for-accessibility
+See full description at (http://www.webofwork.com/qlik-sense-voice-control-extension-for-accessibility)
 
 You can say the following things to your app and it should work assuming you have given the page access to your microphone:
 
