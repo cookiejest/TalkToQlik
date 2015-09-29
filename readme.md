@@ -8,17 +8,25 @@ See full description and details at (http://www.webofwork.com/qlik-sense-voice-c
 
 You can say the following things to your app and it should work assuming you have given the page access to your microphone:
 
-> "Say hello"
+> "Say Hello"
+
 Prompts user with hello world
 
 > "Clear Selection"
+
 Clears current selection
 
 > "Go Forward"
+
 Go forward selection
 
-- 'go back' - Go back selection
-- 'lock selection' - Lock the current selection
+> "Go Back"
+
+Go back selection
+
+> "Lock Selection"
+
+Lock the current selection
 - 'unlock selection' - Unlock current selection
 - 'reload app' - Reload App
 - 'search for *term' - Search for the given term, selects first associated value
