@@ -1,14 +1,22 @@
+#Description:
+See full description and details at (http://www.webofwork.com/qlik-sense-voice-control-extension-for-accessibility)
+
+
+
+
 #Commands:
-See full description at (http://www.webofwork.com/qlik-sense-voice-control-extension-for-accessibility)
 
 You can say the following things to your app and it should work assuming you have given the page access to your microphone:
 
-> Say hello
-
+> "Say hello"
 Prompts user with hello world
-> Clear Selection
+
+> "Clear Selection"
 Clears current selection
-- 'go forward' - go forward selection
+
+> "Go Forward"
+Go forward selection
+
 - 'go back' - Go back selection
 - 'lock selection' - Lock the current selection
 - 'unlock selection' - Unlock current selection
