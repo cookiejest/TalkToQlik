@@ -1,10 +1,12 @@
-#Description:
+#Qlik Sense Voice Control:
+
+##Description
 See full description and details at (http://www.webofwork.com/qlik-sense-voice-control-extension-for-accessibility)
 
 
 
 
-#Commands:
+##Commands:
 
 You can say the following things to your app and it should work assuming you have given the page access to your microphone:
 
@@ -63,7 +65,7 @@ Select excluded within specific field name
 
 Navigate to another sheet with the given field name.
 
-#Prerequisites
+##Prerequisites
 - Qlik Sense 2.1 or higher
 - Need to use chrome
 - Need  Microphone
@@ -73,7 +75,7 @@ Navigate to another sheet with the given field name.
 - Field names need to be be capitalised 'Customer Name' not 'customer name'
 - Needs to be through Chrome. So wont work in native Qlik Sense Desktop. You can just start qlik sense desktop and then navigate to http://localhost:4848/hub in Chrome.
 
-#Known Limitations
+##Known Limitations
 
 1. Currently this will *only work in Chrome* and browsers that support the SpeechRecognition standard. This does not include IE11 or firefox yet.
 
@@ -83,17 +85,17 @@ Navigate to another sheet with the given field name.
 
 3. Current the extension only supports English feel free to add your own languages, as long as they are supported by the annyang library then its all good.
 
-#Settings
+##Settings
 
-##Switch Settings
+###Switch Settings
 
 This will enable you to use the switch or just have it turned on by default when the extension is on the page
 
-##Notifications
+###Notifications
 
 This notifies the user in the extension what action the voice control has taken. This setting disables and enables it
 
-##Selection Context Mode
+###Selection Context Mode
 
 When doing searches currently it is using CurrentSelections as the context mode by default, this can be changed in the settings. In this mode, the current selections are kept (if any). Search for one or more terms in the values of the app. New selections are made on top of the current selections. Other options are:
 
@@ -104,14 +106,14 @@ When doing searches currently it is using CurrentSelections as the context mode 
 3. CurrentSelections (Default): In this mode, the current selections are kept (if any). Search for one or more terms in the values of the app. New selections are made on top of the current selections. If no selections were made before the search, this mode is identical to the Cleared context.
 
 
-##Debug Mode
+###Debug Mode
 
 Debug mode will turn on/off the console logging inside the developer tools so you can see whats going on.
 
 
-#Credits:
+##Credits:
 It uses the open source annyang voice recognition library.
 
-##Other Contributors:
+###Other Contributors:
 Nick Webster
 Adeel Khaan
