@@ -2,7 +2,7 @@
 
 Control Sense using your Voice! Great for accessibility and funky demos
 
-See full description and details at (http://www.webofwork.com/qlik-sense-voice-control-extension-for-accessibility)
+See full description and details at http://www.webofwork.com/qlik-sense-voice-control-extension-for-accessibility
 
 
 
