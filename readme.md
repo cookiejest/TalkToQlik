@@ -22,6 +22,7 @@ You can say the following things to your app and it should work assuming you hav
 #Prerequisites
 - Need to use chrome
 - Need  Microphone
+- User must enable microphone
 - Need to speak English
 - Extension needs to be on the landing page of the app before voice control can kick in
 - Field names need to be be capitalised 'Customer Name' not 'customer name'
@@ -49,15 +50,14 @@ This notifies the user in the extension what action the voice control has taken.
 
 ##Selection Context Mode
 
-- When doing searches currently it is using CurrentSelections as the context mode by default, this can be changed in the settings. In this mode, the current selections are kept (if any). Search for one or more terms in the values of the app. New selections are made on top of the current selections. Other options are:
+When doing searches currently it is using CurrentSelections as the context mode by default, this can be changed in the settings. In this mode, the current selections are kept (if any). Search for one or more terms in the values of the app. New selections are made on top of the current selections. Other options are:
 
-	A. Cleared: In this mode, the first step is to clear any current selections in the app. The second step is to search for one or more terms in the values of the app.
+1. Cleared: In this mode, the first step is to clear any current selections in the app. The second step is to search for one or more terms in the values of the app.
 
-	B. LockedFieldsOnly: In this mode, the search applies only to the values associated with the selections made in locked fields, ignoring selections in any unlocked field. If no locked fields, the behavior is identical to the Cleared context. You cannot make any new selections in a locked field. You can get search hits for the associated values of a locked field but you cannot get the search hits for the non associative values.
+2. LockedFieldsOnly: In this mode, the search applies only to the values associated with the selections made in locked fields, ignoring selections in any unlocked field. If no locked fields, the behavior is identical to the Cleared context. You cannot make any new selections in a locked field. You can get search hits for the associated values of a locked field but you cannot get the search hits for the non associative values.
 
-	C. CurrentSelections (Default): In this mode, the current selections are kept (if any). Search for one or more terms in the values of the app. New selections are made on top of the current selections. If no selections were made before the search, this mode is identical to the Cleared context.
+3. CurrentSelections (Default): In this mode, the current selections are kept (if any). Search for one or more terms in the values of the app. New selections are made on top of the current selections. If no selections were made before the search, this mode is identical to the Cleared context.
 
-4. Currently you need to be accessing through a browser - IT WILL NOT WORK THROUGH SENSE DESKTOP app. You can start qlik sense desktop and then go to localhost:4848/hub and it will work. This is because need permission to use your microphone through your browser.
 
 ##Debug Mode
 
