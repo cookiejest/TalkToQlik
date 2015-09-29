@@ -28,7 +28,7 @@ You can say the following things to your app and it should work assuming you hav
 - Field names need to be be capitalised 'Customer Name' not 'customer name'
 - Needs to be through Chrome. So wont work in native Qlik Sense Desktop. You can just start qlik sense desktop and then navigate to http://localhost:4848/hub in Chrome.
 
-#Known limitations
+#Known Limitations
 
 1. Currently this will *only work in Chrome* and browsers that support the SpeechRecognition standard. This does not include IE11 or firefox yet.
 
