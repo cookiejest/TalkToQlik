@@ -11,6 +11,6 @@
 	"license": "",
 	"repository": "",
 	"dependencies": {
-		"qlik-sense": ">=2.0.x"
+		"qlik-sense": ">=2.1.x"
 	}
 }
