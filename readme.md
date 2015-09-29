@@ -27,15 +27,41 @@ Go back selection
 > "Lock Selection"
 
 Lock the current selection
-- 'unlock selection' - Unlock current selection
-- 'reload app' - Reload App
-- 'search for *term' - Search for the given term, selects first associated value
-- 'clear *fieldname' - Clear specific field name
-- 'lock *fieldname' - Lock specific field name
-- 'unlock *fieldname' - Unlock specific field name
-- 'select alternative *fieldname' - select alternative value within the specific fieldname
-- 'select excluded *fieldname' - select excluded within specific field name
-- 'show me *sheetname' - navigate to another sheet with the given field name.
+
+> "unlock selection"
+
+Unlock current selection
+
+> "reload app"
+
+Reload App
+
+> "search for {SEARCHTERM}"
+
+Search for the given term, selects first associated value
+
+> "clear {FIELDNAME}"
+
+Clear specific field name
+
+> "Lock {FIELDNAME}"
+
+Lock specific field name
+
+> "Unlock {FIELDNAME}" 
+
+Unlock specific field name
+> "select alternative {FIELDNAME}"
+
+Select alternative value within the specific fieldname
+
+> "select excluded {FIELDNAME}"
+
+Select excluded within specific field name
+
+> "Show me {SHEETNAME}"
+
+Navigate to another sheet with the given field name.
 
 #Prerequisites
 - Need to use chrome
