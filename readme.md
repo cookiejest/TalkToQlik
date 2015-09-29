@@ -64,6 +64,7 @@ Select excluded within specific field name
 Navigate to another sheet with the given field name.
 
 #Prerequisites
+- Qlik Sense 2.1 or higher
 - Need to use chrome
 - Need  Microphone
 - User must enable microphone
