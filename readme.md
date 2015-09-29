@@ -1,4 +1,4 @@
-#Qlik Sense Voice Control:
+#Qlik Sense Voice Control
 
 ##Description
 See full description and details at (http://www.webofwork.com/qlik-sense-voice-control-extension-for-accessibility)
