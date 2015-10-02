@@ -7,6 +7,8 @@ See full description and details at http://www.webofwork.com/qlik-sense-voice-co
 
 **This currently only works for Chrome with Qlik Sense 2.1**
 
+Built by Adam Cooke (http://webofwork.com/)
+
 ##Commands:
 
 You can say the following things to your app and it should work assuming you have given the page access to your microphone:
