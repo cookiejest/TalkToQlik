@@ -3,7 +3,7 @@ define(["./properties", "qlik","jquery","client.utils/routing", "./annyang.min"]
 		'use strict';
 
 
-	 	$('<link rel="stylesheet" type="text/css" href="/extensions/TalktoQlik/talktoqlikstyle.css">').appendTo("head");
+	 	$('<link rel="stylesheet" type="text/css" href="/extensions/VizlibSearchBox/VizlibSearchBox.css">').appendTo("head");
 
 
 
