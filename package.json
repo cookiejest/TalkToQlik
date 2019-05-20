@@ -14,9 +14,11 @@
     "build-prod": "webpack  --env.mode=production --progress"
   },
   "dependencies": {
+    "annyang": "^2.6.1",
     "axios": "^0.18.0",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.11",
+    "vis": "^4.21.0",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1"
   },
