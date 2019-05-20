@@ -41,3 +41,13 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Packages folder
+node_modules
+
+# Build output folder
+dist
+
+# Configuration files
+webpack.config.js
+desktop.ini
