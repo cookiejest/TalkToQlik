@@ -16,9 +16,8 @@
   "dependencies": {
     "annyang": "^2.6.1",
     "axios": "^0.18.0",
-    "font-awesome": "^4.7.0",
+    "leonardo-ui": "^1.7.1",
     "lodash": "^4.17.11",
-    "vis": "^4.21.0",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1"
   },
@@ -28,6 +27,7 @@
     "autoprefixer": "^9.4.5",
     "babel-loader": "^8.0.4",
     "babel-preset-env": "^1.6.0",
+    "webpack-zip-files-plugin": "^1.0.0",
     "clean-webpack-plugin": "^2.0.2",
     "copy-webpack-plugin": "^5.0.2",
     "css-loader": "^2.1.1",
