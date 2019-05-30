@@ -1,0 +1,13 @@
+{
+    "type": "visualization",
+    "name": "MASHUPNAME",
+    "description": "BUILDDESCRIPTION",
+    "version": "VERSIONNUMBER",
+    "homepage": "",
+    "keywords": "qlik-sense, visualization, extension",
+    "license": "",
+    "repository": "",
+    "dependencies": {
+        "qlik-sense": ">=3.0.x"
+    }
+}
