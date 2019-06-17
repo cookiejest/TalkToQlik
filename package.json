@@ -4,6 +4,14 @@
   "version": "0.1.0",
   "description": "",
   "author": "Web Of Work Limited",
+  "authpanel": {
+    "type": "timeline",
+    "about": "The TalkToQlik extension lets you ...",
+    "docs": "//blog.webofwork.com/",
+    "logo": "https://assets.webofwork.com/w0w-toolkit-logo.svg",
+    "icon": "https://assets.webofwork.com/icon-writeback-table.svg",
+    "env": "https://app.webofwork.com"
+  },
   "private": true,
   "license": "EULA",
   "scripts": {

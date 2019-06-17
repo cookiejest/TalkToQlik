@@ -7,7 +7,6 @@ const Routing = require("client.utils/routing");
 
 import { properties } from "@/properties";
 import auth from "@/auth";
-import { utils } from "@/utils";
 import annyang from "annyang";
 
 export default (() => {
@@ -84,6 +83,7 @@ export default (() => {
                     TalkToQlikNotification("Listening...", "temp", layout.NotificationMode);
                 });
 
+                var notification = null;
                 // Let's define a command.
                 var commands = {
                     "say hello": function () {
@@ -132,34 +132,34 @@ export default (() => {
                     "clear *fieldname": function (fieldname) {
                         app.field(toTitleCase(fieldname)).clear();
                         console.log("Clear " + fieldname);
-                        var notification = "Cleared " + fieldname;
+                        notification = "Cleared " + fieldname;
                         TalkToQlikNotification(notification, "OK", layout.NotificationMode);
                     },
                     "lock *fieldname": function (fieldname) {
                         app.field(toTitleCase(fieldname)).lock();
                         console.log("Lock " + fieldname);
-                        var notification = "Locked " + fieldname;
+                        notification = "Locked " + fieldname;
                     },
                     "unlock *fieldname": function (fieldname) {
                         app.field(toTitleCase(fieldname)).unlock();
                         console.log("Unlock " + fieldname);
-                        var notification = "Unlocked " + fieldname;
+                        notification = "Unlocked " + fieldname;
                     },
                     "select alternative *fieldname": function (fieldname) {
                         app.field(toTitleCase(fieldname)).selectAlternative();
                         console.log("Select Alternative " + fieldname);
-                        var notification = "Selected Alternative " + fieldname;
+                        notification = "Selected Alternative " + fieldname;
                     },
                     "select excluded *fieldname": function (fieldname) {
                         app.field(toTitleCase(fieldname)).selectExcluded();
                         console.log("Select Excluded " + fieldname);
-                        var notification = "Selected Excluded " + fieldname;
+                        notification = "Selected Excluded " + fieldname;
                     },
                     "show me *sheetname": function (sheetname) {
                         var cleansheetname = toTitleCase(sheetname);
                         console.log("Navigate to sheet " + cleansheetname);
                         var results = cleansheetinfo.filter(function (entry) { return entry.sheetname === cleansheetname; });
-                        var notification = "Navigate to sheet " + cleansheetname;
+                        notification = "Navigate to sheet " + cleansheetname;
                         //if no sheet found set notification
                         Routing.goToSheet(results[0].sheetID);
                     }
