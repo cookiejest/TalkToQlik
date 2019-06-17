@@ -1,10 +1,7 @@
 const $ = require("jquery");
 import axios from "axios";
-import { isValidToken } from "@/auth";
-
-import {
-    setRefValue
-} from "@/utils";
+import auth from "@/auth";
+import { setRefValue } from "@/utils";
 
 
 export const properties = () => {
@@ -111,7 +108,8 @@ export const properties = () => {
                         type: "string",
                         label: "Environment",
                         ref: "environment",
-                        defaultValue: "https://app.webofwork.com"
+                        // defaultValue: "https://app.webofwork.com"
+                        defaultValue: "https://calltoaction-api-staging.herokuapp.com"
                     },
                     useremail: {
                         type: "string",
@@ -170,38 +168,42 @@ export const properties = () => {
                             </div>
                             `,
                             controller: ["$scope", "$element", function ($scope, $element) {
-                                console.log("TCL: properties -> $element", $element);
-                                console.log("TCL: $scope -> c", $scope);
+                                const envInput = $("div[tid='environment']").find("input")[0];
+                                if (!$scope.data.environment) $scope.data.environment = envInput.value;
 
                                 let data = $scope.$parent.data;
+                                if (data.accessToken || data.AccessToken) {
+                                    $scope.isLoggedIn = true;
+                                    envInput.disabled = true;
+                                } else {
+                                    $scope.isLoggedIn = false;
+                                    envInput.disabled = false;
+                                }
 
                                 console.log("extension data", data);
-
-
-                                if (data.accessToken != "") {
-
-                                    isValidToken(data.environment, data.accessToken, data.userId).then(function (r) {
+                                $scope.$on("layoutchanged", function (event, data) {
+                                    if (data.accessToken || data.AccessToken) {
                                         $scope.isLoggedIn = true;
-                                        console.log("Logged in.");
-                                    }).catch((err) => {
-                                        console.log(err);
+                                        envInput.disabled = true;
+                                    } else {
                                         $scope.isLoggedIn = false;
-                                        console.log("Token exists but not valid.");
+                                        envInput.disabled = false;
+                                    }
+                                });
 
+                                if (data.accessToken != "" && data.environment) {
+                                    auth.isValidToken(data.environment, data.accessToken, data.userId).then(function (r) {
+                                        $scope.isLoggedIn = true;
+                                    }).catch(() => {
+                                        $scope.isLoggedIn = false;
                                     });
 
                                 } else {
-
                                     $scope.isLoggedIn = false;
-
-
                                 }
-
-                                //$scope.URL = 'https://' + data.rootURI + '/api/writebacks/' + (data.writebackId || '{Id}');
 
 
                                 $scope.login = function (data) {
-
                                     let email = $("#authEmail").val();
                                     let password = $("#authPassword").val();
                                     if (!email.trim() || !password.trim()) {
@@ -214,58 +216,37 @@ export const properties = () => {
                                         email,
                                         password
                                     }).then(function (res) {
-                                        console.log("response from server", res);
-
-                                        isValidToken($scope.data.environment, res.data.id, res.data.userId).then(function (r) {
-
+                                        auth.isValidToken($scope.data.environment, res.data.id, res.data.userId).then(function (r) {
                                             // Updating the layout and save
                                             console.log("Response from token check", res);
-
                                             setRefValue($scope.data, "accessToken", res.data.id);
+                                            setRefValue($scope.data, "AccessToken", res.data.id);
                                             setRefValue($scope.data, "userId", res.data.userId);
                                             setRefValue($scope.data, "userEmail", $("#authEmail").val());
 
-
                                             $scope.isLoggedIn = true;
                                             $scope.errormessage = null;
-
-                                            //  "function" == typeof c.definition.change && c.definition.change(c.data, c.args.handler);
                                             $scope.$emit("saveProperties");
-
-                                            //app.doSave();
-                                            console.log("Token Saved.");
+                                            if (auth.app) auth.app.doSave();
                                         });
 
                                     })
-                                        .catch((err) => {
-                                            console.log(err);
-                                            setRefValue($scope.data, "accessToken", "");
-
+                                        .catch(() => {
+                                            setRefValue($scope.data, "accessToken", null);
                                             $scope.isLoggedIn = false;
-                                            console.log("Token Invalid.");
                                             $scope.errormessage = "Token is invalid. Please login.";
-
-                                            //  "function" == typeof c.definition.change && c.definition.change(c.data, c.args.handler);
                                             $scope.$emit("saveProperties");
-
-
+                                            if (auth.app) auth.app.doSave();
                                         });
                                 };
 
                                 $scope.logout = function () {
-                                    setRefValue($scope.data, "accessToken", "");
-                                    setRefValue($scope.data, "userId", "");
-                                    setRefValue($scope.data, "userEmail", "");
+                                    setRefValue($scope.data, "accessToken", null);
+                                    //setRefValue($scope.data, "userId", null);
+                                    setRefValue($scope.data, "userEmail", null);
                                     $scope.isLoggedIn = false;
-
-                                    //Timeout token server side. DO THIS
-
-
-                                    //  "function" == typeof c.definition.change && c.definition.change(c.data, c.args.handler);
                                     $scope.$emit("saveProperties");
-                                    console.log("Token Cleared.");
-
-
+                                    auth.logout();
                                 };
                             }]
                         }
