@@ -1,0 +1,1 @@
+define(["./bundle", "css!./style.css"], function (b) { return b; });

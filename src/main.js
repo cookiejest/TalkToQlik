@@ -6,7 +6,7 @@ const $ = require("jquery");
 const Routing = require("client.utils/routing");
 
 import { properties } from "@/properties";
-import auth from "@/auth";
+import { auth } from "@webofwork/w0w-qlik-auth";
 import annyang from "annyang";
 
 export default (() => {
@@ -51,9 +51,11 @@ export default (() => {
         },
         definition: properties(),
         paint: function ($element, layout) {
-            console.log("TCL: layout", layout);
-            $element.html("<div><h1>Please Login!</h1></div>");
-            if (!layout.AccessToken) return;
+            $element.html("<div><h1>Please go the About section in the properties panel and login using your WebOfWork account.</h1></div>");
+            if (!layout.AccessToken) {
+                annyang.pause();
+                return;
+            }
 
             var HTMLcontent = "";
             if (layout.DefaultMode === true) {
