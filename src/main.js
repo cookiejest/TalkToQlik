@@ -193,8 +193,8 @@ export default (() => {
 
             console.log("painted!");
         },
-        controller: function ($element, $scope) {
+        controller: ["$scope", "$element", function ($scope, $element) {
             auth.init($element, $scope);
-        }
+        }]
     };
 })();
