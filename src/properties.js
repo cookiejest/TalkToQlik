@@ -1,7 +1,9 @@
-import auth from "@/auth";
+import { auth } from "@webofwork/w0w-qlik-auth";
+const extSetting = require("../package.json");
 
 
 export const properties = () => {
+    auth.extSetting = extSetting;
     // *****************************************************************************
     // Settings section
     // *****************************************************************************

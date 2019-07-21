@@ -15,35 +15,20 @@ const filename = mashupname + ".qext";
 const filenamejs = mashupname + ".js";
 const description = require("./package.json").description;
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin"); // installed via npm
-var OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const ZipFilesPlugin = require("webpack-zip-files-plugin");
+const UploaderPlugin = require("./UploaderPlugin");
 
 
-module.exports = env => {
+module.exports = () => {
   return {
-    entry: "./src/main.js",
-    mode: "development",
+    entry: ["babel-polyfill", "./src/main.js"],
+    mode: "production",
     output: {
-      filename: filenamejs,
+      filename: "bundle.js",
       libraryTarget: "amd",
       path: path.resolve(__dirname, "dist")
-    },
-    devtool: "inline-source-map",
-    // watch: true,
-    watchOptions: {
-      aggregateTimeout: 1000,
-      ignored: ["node_modules"]
-    },
-    optimization: {
-      // minimizer: [
-      //   new TerserPlugin({
-      //     test: /\.js(\?.*)?$/i,
-      //     cache: true,
-      //     parallel: true
-      //   })
-      // ]
     },
     module: {
       rules: [
@@ -82,10 +67,6 @@ module.exports = env => {
       "jquery",
       "client.utils/routing"
     ],
-    devServer: {
-      historyApiFallback: true,
-      noInfo: true,
-    },
     performance: {
       hints: false,
     },
@@ -101,15 +82,6 @@ module.exports = env => {
         canPrint: true
       }),
       new webpack.HotModuleReplacementPlugin(),
-      new CopyWebpackPlugin(
-        [
-          { from: "extension.qext", to: filename },
-          { from: "token.json", to: "token.json" }
-        ],
-        {
-          copyUnmodified: false,
-        }
-      ),
       new WebpackAutoInject({
         components: {
           AutoIncreaseVersion: false,
@@ -132,11 +104,16 @@ module.exports = env => {
         }]
       }]),
       new CopyWebpackPlugin(
-        [{
-          from: "dist",
-          to: `${os.homedir()}/Documents/Qlik/Sense/Extensions/${mashupname}`,
-          force: true,
-        }],
+        [
+          { from: "wrapper.prod.js", to: filenamejs },
+          { from: "extension.qext", to: filename },
+          { from: "token.json", to: "token.json" },
+          {
+            from: "dist",
+            to: `${os.homedir()}/Documents/Qlik/Sense/Extensions/${mashupname}`,
+            force: true,
+          }
+        ],
         {
           copyUnmodified: false,
           ignore: ["*.hot-update.*"]
@@ -146,7 +123,8 @@ module.exports = env => {
         entries: [{ src: "./dist/", dist: mashupname + "/" }],
         output: mashupname + "_" + version,
         format: "zip",
-      })
+      }),
+      new UploaderPlugin()
     ]
   };
 };
