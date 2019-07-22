@@ -22,7 +22,7 @@
     "build": "webpack --progress --config webpack.prod.js"
   },
   "dependencies": {
-    "@webofwork/w0w-qlik-auth": "^1.0.0",
+    "@webofwork/w0w-qlik-auth": "^1.0.1",
     "annyang": "^2.6.1",
     "axios": "^0.18.0",
     "leonardo-ui": "^1.7.1",
